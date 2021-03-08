@@ -19,7 +19,6 @@ class RoomModel
         $sql = "SELECT * FROM tbl_rooms";
         $stmt = $this->database->query($sql);
         $stmt->execute();
-//        var_dump($stmt->fetchAll());
         return $stmt->fetchAll();
     }
 
@@ -58,7 +57,7 @@ class RoomModel
         $stmt->bindParam(':room_rates', $room_rates);
         $stmt->bindParam(':img', $img);
         $stmt->execute();
-//        var_dump($stmt->execute());
+
     }
 
     public function getRoomById($id)
@@ -67,6 +66,13 @@ class RoomModel
         $stmt = $this->database->prepare($sql);
         $stmt->bindParam(':id', $id);
         $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+    public function searchRoom($search)
+    {
+        $sql = "SELECT * FROM tbl_rooms WHERE room_name LIKE '$search%'" ;
+        $stmt = $this->database->query($sql);
         return $stmt->fetchAll();
     }
 }
