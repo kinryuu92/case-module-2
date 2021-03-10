@@ -1,4 +1,4 @@
-<h1>Bạn chắc chắn muỗn xóa khách hàng này?</h1>
+<h1>Bạn chắc chắn muỗn xóa phòng này?</h1>
 
 <h3><?php echo $room['room_name']; ?></h3>
 <form action="./index.php?page=delete" method="post">

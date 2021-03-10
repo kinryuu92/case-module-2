@@ -1,5 +1,5 @@
-<h2>Cập nhật thông tin khách hàng</h2>
-<form method="post">
+<h2>Cập nhật thông tin rooms</h2>
+<form method="post" enctype="multipart/form-data">
 
     <input type="hidden" name="id" value="<?php echo $room[0]['room_id']; ?>"/>
     <div class="form-group">

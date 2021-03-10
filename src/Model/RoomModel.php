@@ -58,6 +58,7 @@ class RoomModel
         $stmt->bindParam(':img', $img);
         $stmt->execute();
 
+
     }
 
     public function getRoomById($id)

@@ -1,6 +1,5 @@
 
-<!--<h2>Room lists</h2>-->
-
+<h2>Our Rooms</h2>
 <table class="table">
   <thead>
   <tr>
@@ -17,7 +16,6 @@
       <tr>
           <td><?php echo ++$key ?></td>
           <td><?php echo $room['room_name'] ?></td>
-
           <td><?php echo $room['status'] ?></td>
           <td><?php echo $room['style'] ?></td>
           <td><?php echo $room['room_rates'] ?></td>

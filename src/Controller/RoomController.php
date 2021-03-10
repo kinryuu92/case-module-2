@@ -72,7 +72,9 @@ class RoomController
             $status = $_POST['status'];
             $style = $_POST['style'];
             $room_rates = $_POST['room_rates'];
-            $img = $_POST['img'];
+            $img = $_FILES['img']['name'];
+            $img_tmp = $_FILES['img']['tmp_name'];
+            move_uploaded_file($img_tmp,'img/'.$img);
             if ($img == NULL ) {
                 $img = $_POST['old-img'];
             }

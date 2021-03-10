@@ -13,7 +13,6 @@ class SigInController
     }
     public function Create() {
         if ($_SERVER['REQUEST_METHOD'] == 'GET'){
-            var_dump("hghghghh");
             include 'src/View/member_sigin/sigin.php';
         }
         else if ($_SERVER['REQUEST_METHOD'] == 'POST'){
