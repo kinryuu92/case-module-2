@@ -57,8 +57,6 @@ class RoomModel
         $stmt->bindParam(':room_rates', $room_rates);
         $stmt->bindParam(':img', $img);
         $stmt->execute();
-
-
     }
 
     public function getRoomById($id)
@@ -75,5 +73,13 @@ class RoomModel
         $sql = "SELECT * FROM tbl_rooms WHERE room_name LIKE '$search%'" ;
         $stmt = $this->database->query($sql);
         return $stmt->fetchAll();
+    }
+
+    public function roomDetails($id) {
+        $sql = "SELECT * FROM v_roomdetails WHERE id=:id";
+        $stml = $this->database->prepare($sql);
+        $stml->bindParam(':id',$id);
+        $stml->execute();
+        return $stml->fetchAll();
     }
 }

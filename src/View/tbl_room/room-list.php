@@ -1,4 +1,3 @@
-
 <h2>Our Rooms</h2>
 <table class="table">
   <thead>
@@ -21,7 +20,7 @@
           <td><?php echo $room['room_rates'] ?></td>
           <td>
               <a href="index.php?page=room-details&id=<?php echo $room['room_id'] ?>">
-                  <img style="width: 100px" src="img/<?php echo $room['img'] ?>">
+                  <img style="width: 30px" src="img/<?php echo $room['img'] ?>">
               </a>
           </td>
           <td> <a href="./index.php?page=delete&id=<?php echo $room['room_id']; ?>" class="btn btn-warning btn-sm">Delete</a></td>

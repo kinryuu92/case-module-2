@@ -56,6 +56,7 @@ class ServiceController
             $service_prices = $_POST['service_prices'];
             $img = $_FILES['img']['name'];
             $img_tmp = $_FILES['img']['tmp_name'];
+            $message = 'service created';
             move_uploaded_file($img_tmp,'img/'.$img);
             if ($img == NULL ) {
                 $img = $_POST['old-img'];

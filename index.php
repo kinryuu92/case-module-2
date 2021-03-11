@@ -4,12 +4,12 @@ ob_start();
 
 use  App\Controller\RoomController;
 use App\Controller\ServiceController;
-use App\Controller\SigInController;
+use App\Controller\CustomerController;
 require __DIR__ . '/vendor/autoload.php';
 $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : '';
 $roomController = new RoomController();
 $serviceController = new ServiceController();
-$siginController = new SigInController();
+$customerController = new CustomerController();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,14 +27,14 @@ $siginController = new SigInController();
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#">SAKURA HOTEL</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="index.php?page=HOME">HOME</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="index.php?page=room-list" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -57,8 +57,15 @@ $siginController = new SigInController();
                         <li><a class="dropdown-item" href="./index.php?page=add_service">Add new service</a></li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="index.php?page=sigin"  >Sig In</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="index.php?page=customer-list" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        CUSTOMERS
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="index.php?page=customer-list">Customer</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="./index.php?page=add_customer">Add new customer</a></li>
+                    </ul>
                 </li>
             </ul>
             <form method="post" action="index.php" class="d-flex">
@@ -86,11 +93,11 @@ $siginController = new SigInController();
         case 'edit':
             $roomController->edit();
             break;
+        case 'room-details':
+            $roomController->showRoomDetails();
+            break;
         case 'service-list':
             $serviceController->index();
-            break;
-        case 'sigin':
-            $siginController->Create();
             break;
         case'add_service':
             $serviceController->Create_services();
@@ -101,6 +108,12 @@ $siginController = new SigInController();
             break;
         case 'edit_service':
             $serviceController->EditService();
+            break;
+        case 'customer-list':
+            $customerController->index();
+            break;
+        case 'add_customer':
+            $customerController->create_customer();
             break;
         default:
             $roomController->index();
